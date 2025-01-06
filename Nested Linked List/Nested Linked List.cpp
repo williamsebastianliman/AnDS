@@ -120,8 +120,12 @@ void erase(int value, char group[])
 	//One Validation
 	if(masterTemp->head == masterTemp->tail)
 	{
-		free(masterTemp->head);
-		masterTemp->head = masterTemp->tail = NULL;
+		if(value == masterTemp->head->value)
+		{
+			free(masterTemp->head);
+			masterTemp->head = masterTemp->tail = NULL;
+		}
+		return;
 	}
 	//Pop Head
 	if(value == masterTemp->head->value)
